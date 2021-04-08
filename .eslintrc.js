@@ -3,16 +3,22 @@ module.exports = {
     browser: true,
     commonjs: true,
     node: true,
+    'jest/globals': true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', 'jest'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parserOptions: {
     ecmaVersion: 2019,
+    sourceType: 'module',
   },
   rules: {
     // Prettier
@@ -87,7 +93,7 @@ module.exports = {
     curly: 'error',
     yoda: 'error',
     complexity: ['warn', 20],
-    'max-classes-per-file': ['error', 1],
+    'max-classes-per-file': ['warn', 1],
     'dot-location': ['error', 'property'],
     'computed-property-spacing': ['error', 'never'],
     'no-trailing-spaces': ['error'],
@@ -127,5 +133,11 @@ module.exports = {
     'max-lines': ['warn', 1000],
     'max-lines-per-function': ['warn', 50],
     'max-nested-callbacks': ['warn', 4],
+    // Jest
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
   },
 };

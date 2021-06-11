@@ -47,7 +47,6 @@ module.exports = {
     'getter-return': ['error', { allowImplicit: true }],
     'no-duplicate-imports': 'error',
     'no-var': 'error',
-    'no-extra-parens': 'warn',
     'no-undef-init': 'warn',
     eqeqeq: 'warn',
     'no-empty': 'warn',
@@ -71,12 +70,13 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'array-bracket-spacing': ['error', 'never'],
     'max-len': [
-      'error',
+      'warn',
       {
         code: 120,
         tabWidth: 2,
         ignoreComments: true,
         ignoreStrings: true,
+        ignoreTemplateLiterals: true,
       },
     ],
     indent: [
@@ -90,8 +90,6 @@ module.exports = {
     semi: ['error', 'always'],
     curly: 'error',
     yoda: 'error',
-    complexity: ['warn', 20],
-    'max-classes-per-file': ['warn', 1],
     'dot-location': ['error', 'property'],
     'computed-property-spacing': ['error', 'never'],
     'no-trailing-spaces': ['error'],
@@ -129,7 +127,7 @@ module.exports = {
       },
     ],
     'max-lines': ['warn', 1000],
-    'max-lines-per-function': ['warn', 50],
+    'max-lines-per-function': ['warn', 70],
     'max-nested-callbacks': ['warn', 4],
   },
 };
